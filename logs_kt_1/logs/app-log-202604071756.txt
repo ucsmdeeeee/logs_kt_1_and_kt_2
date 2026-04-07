@@ -1,0 +1,162 @@
+2026-04-07 17:56:12 [INFO] Request starting "HTTP/2" "POST" "https"://"localhost:7156""""/api/Books""" - "application/json" 69
+2026-04-07 17:56:12 [DEBUG] 1 candidate(s) found for the request path '"/api/Books"'
+2026-04-07 17:56:12 [DEBUG] Endpoint '"logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)"' with route pattern '"api/Books"' is valid for the request path '"/api/Books"'
+2026-04-07 17:56:12 [DEBUG] Request matched endpoint '"logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)"'
+2026-04-07 17:56:12 [DEBUG] Static files was skipped as the request already matched an endpoint.
+2026-04-07 17:56:12 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)"'
+2026-04-07 17:56:12 [INFO] Route matched with "{action = \"PostBook\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[logs_kt_1.Models.Book]] PostBook(logs_kt_1.Models.Book)" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 17:56:12 [DEBUG] Execution plan of "authorization" filters (in the following order): ["None"]
+2026-04-07 17:56:12 [DEBUG] Execution plan of "resource" filters (in the following order): ["None"]
+2026-04-07 17:56:12 [DEBUG] Execution plan of "action" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)", "Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-04-07 17:56:12 [DEBUG] Execution plan of "exception" filters (in the following order): ["None"]
+2026-04-07 17:56:12 [DEBUG] Execution plan of "result" filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-04-07 17:56:12 [DEBUG] Executing controller factory for controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1")
+2026-04-07 17:56:12 [DEBUG] Executed controller factory for controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1")
+2026-04-07 17:56:12 [DEBUG] Attempting to bind parameter '"book"' of type '"logs_kt_1.Models.Book"' ...
+2026-04-07 17:56:12 [DEBUG] Attempting to bind parameter '"book"' of type '"logs_kt_1.Models.Book"' using the name '""' in request data ...
+2026-04-07 17:56:12 [DEBUG] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter"' for content type '"application/json"'.
+2026-04-07 17:56:12 [DEBUG] Connection id ""0HNKKMMUFM49F"", Request id ""0HNKKMMUFM49F:00000003"": started reading request body.
+2026-04-07 17:56:12 [DEBUG] Connection id ""0HNKKMMUFM49F"", Request id ""0HNKKMMUFM49F:00000003"": done reading request body.
+2026-04-07 17:56:12 [DEBUG] JSON input formatter succeeded, deserializing to type '"logs_kt_1.Models.Book"'
+2026-04-07 17:56:12 [DEBUG] Done attempting to bind parameter '"book"' of type '"logs_kt_1.Models.Book"'.
+2026-04-07 17:56:12 [DEBUG] Done attempting to bind parameter '"book"' of type '"logs_kt_1.Models.Book"'.
+2026-04-07 17:56:12 [DEBUG] Attempting to validate the bound parameter '"book"' of type '"logs_kt_1.Models.Book"' ...
+2026-04-07 17:56:12 [DEBUG] Done attempting to validate the bound parameter '"book"' of type '"logs_kt_1.Models.Book"'.
+2026-04-07 17:56:12 [INFO] "[TRACE-SOURCE][START] Начало операции PostBook"
+2026-04-07 17:56:12 [INFO] "[TRACE] Начало операции PostBook."
+2026-04-07 17:56:12 [DEBUG] Entity Framework Core "8.0.0" initialized '"ApplicationDbConext"' using provider '"Microsoft.EntityFrameworkCore.InMemory":"8.0.0"' with options: "StoreName=LibraryDB "
+2026-04-07 17:56:12 [DEBUG] '"ApplicationDbConext"' generated a value for the property '"Book"."Id"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-04-07 17:56:12 [DEBUG] Context '"ApplicationDbConext"' started tracking '"Book"' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-04-07 17:56:12 [DEBUG] SaveChanges starting for '"ApplicationDbConext"'.
+2026-04-07 17:56:12 [DEBUG] DetectChanges starting for '"ApplicationDbConext"'.
+2026-04-07 17:56:12 [DEBUG] DetectChanges completed for '"ApplicationDbConext"'.
+2026-04-07 17:56:12 [INFO] Saved 1 entities to in-memory store.
+2026-04-07 17:56:12 [DEBUG] An entity of type '"Book"' tracked by '"ApplicationDbConext"' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-04-07 17:56:12 [DEBUG] SaveChanges completed for '"ApplicationDbConext"' with 1 entities written to the database.
+2026-04-07 17:56:12 [DEBUG] Compiling query expression: "
+"'"DbSet<Book>()
+    .Count()"'
+2026-04-07 17:56:12 [DEBUG] Generated query execution expression: "
+"'"queryContext => ShapedQueryCompilingExpressionVisitor.SingleAsync<int>(
+    asyncEnumerable: new QueryingEnumerable<int>(
+        queryContext, 
+        new ResultEnumerable(() => new ValueBuffer(new object[]{ (object)InMemoryShapedQueryCompilingExpressionVisitor.Table(
+            queryContext: queryContext, 
+            entityType: EntityType: Book)
+            .Count() })), 
+        Func<QueryContext, ValueBuffer, int>, 
+        logs_kt_1.Data.ApplicationDbConext, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)"'
+2026-04-07 17:56:12 [INFO] "[TRACE-SOURCE][INFO] Книга \"string\" успешно добавлена."
+2026-04-07 17:56:12 [INFO] "[TRACE-SOURCE][INFO] Количество книг после добавления: 1"
+2026-04-07 17:56:12 [PERF] "[TRACE] [PERF] PostBook() занял 159 мс"
+2026-04-07 17:56:12 [INFO] "[TRACE-SOURCE][INFO] PostBook() занял 159 мс"
+2026-04-07 17:56:12 [INFO] "[TRACE-SOURCE][STOP] Завершение операции PostBook"
+2026-04-07 17:56:12 [INFO] "[TRACE] Конец операции PostBook."
+2026-04-07 17:56:12 [DEBUG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter", "Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter", "Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter", "Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-04-07 17:56:12 [DEBUG] Attempting to select an output formatter based on Accept header '["text/plain"]'.
+2026-04-07 17:56:12 [DEBUG] Could not find an output formatter based on content negotiation. Accepted types were (["text/plain"])
+2026-04-07 17:56:12 [DEBUG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-04-07 17:56:12 [DEBUG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-04-07 17:56:12 [DEBUG] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"' and content type '"application/json"' to write the response.
+2026-04-07 17:56:12 [INFO] Executing "CreatedAtActionResult", writing value of type '"logs_kt_1.Models.Book"'.
+2026-04-07 17:56:12 [DEBUG] Found the endpoints ["logs_kt_1.Controllers.BooksController.GetBook (logs_kt_1)"] for address "(id=[1],action=[GetBook],controller=[Books])"
+2026-04-07 17:56:12 [DEBUG] Successfully processed template "api/Books/{id}" for "logs_kt_1.Controllers.BooksController.GetBook (logs_kt_1)" resulting in "/api/Books/1" and ""
+2026-04-07 17:56:12 [DEBUG] Link generation succeeded for endpoints ["logs_kt_1.Controllers.BooksController.GetBook (logs_kt_1)"] with result "/api/Books/1"
+2026-04-07 17:56:12 [INFO] Executed action "logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)" in 259.1992ms
+2026-04-07 17:56:12 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)"'
+2026-04-07 17:56:12 [DEBUG] '"ApplicationDbConext"' disposed.
+2026-04-07 17:56:12 [INFO] Request finished "HTTP/2" "POST" "https"://"localhost:7156""""/api/Books""" - 201 null "application/json; charset=utf-8" 305.4407ms
+2026-04-07 17:56:45 [INFO] Request starting "HTTP/2" "PUT" "https"://"localhost:7156""""/api/Books/11""" - "application/json" 69
+2026-04-07 17:56:45 [DEBUG] 1 candidate(s) found for the request path '"/api/Books/11"'
+2026-04-07 17:56:45 [DEBUG] Endpoint '"logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)"' with route pattern '"api/Books/{id}"' is valid for the request path '"/api/Books/11"'
+2026-04-07 17:56:45 [DEBUG] Request matched endpoint '"logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)"'
+2026-04-07 17:56:45 [DEBUG] Static files was skipped as the request already matched an endpoint.
+2026-04-07 17:56:45 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)"'
+2026-04-07 17:56:45 [INFO] Route matched with "{action = \"PutBook\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PutBook(Int32, logs_kt_1.Models.Book)" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 17:56:45 [DEBUG] Execution plan of "authorization" filters (in the following order): ["None"]
+2026-04-07 17:56:45 [DEBUG] Execution plan of "resource" filters (in the following order): ["None"]
+2026-04-07 17:56:45 [DEBUG] Execution plan of "action" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)", "Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-04-07 17:56:45 [DEBUG] Execution plan of "exception" filters (in the following order): ["None"]
+2026-04-07 17:56:45 [DEBUG] Execution plan of "result" filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-04-07 17:56:45 [DEBUG] Executing controller factory for controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1")
+2026-04-07 17:56:45 [DEBUG] Executed controller factory for controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1")
+2026-04-07 17:56:45 [DEBUG] Attempting to bind parameter '"id"' of type '"System.Int32"' ...
+2026-04-07 17:56:45 [DEBUG] Attempting to bind parameter '"id"' of type '"System.Int32"' using the name '"id"' in request data ...
+2026-04-07 17:56:45 [DEBUG] Done attempting to bind parameter '"id"' of type '"System.Int32"'.
+2026-04-07 17:56:45 [DEBUG] Done attempting to bind parameter '"id"' of type '"System.Int32"'.
+2026-04-07 17:56:45 [DEBUG] Attempting to validate the bound parameter '"id"' of type '"System.Int32"' ...
+2026-04-07 17:56:45 [DEBUG] Done attempting to validate the bound parameter '"id"' of type '"System.Int32"'.
+2026-04-07 17:56:45 [DEBUG] Attempting to bind parameter '"book"' of type '"logs_kt_1.Models.Book"' ...
+2026-04-07 17:56:45 [DEBUG] Attempting to bind parameter '"book"' of type '"logs_kt_1.Models.Book"' using the name '""' in request data ...
+2026-04-07 17:56:45 [DEBUG] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter"' for content type '"application/json"'.
+2026-04-07 17:56:45 [DEBUG] Connection id ""0HNKKMMUFM49F"", Request id ""0HNKKMMUFM49F:00000005"": started reading request body.
+2026-04-07 17:56:45 [DEBUG] Connection id ""0HNKKMMUFM49F"", Request id ""0HNKKMMUFM49F:00000005"": done reading request body.
+2026-04-07 17:56:45 [DEBUG] JSON input formatter succeeded, deserializing to type '"logs_kt_1.Models.Book"'
+2026-04-07 17:56:45 [DEBUG] Done attempting to bind parameter '"book"' of type '"logs_kt_1.Models.Book"'.
+2026-04-07 17:56:45 [DEBUG] Done attempting to bind parameter '"book"' of type '"logs_kt_1.Models.Book"'.
+2026-04-07 17:56:45 [DEBUG] Attempting to validate the bound parameter '"book"' of type '"logs_kt_1.Models.Book"' ...
+2026-04-07 17:56:45 [DEBUG] Done attempting to validate the bound parameter '"book"' of type '"logs_kt_1.Models.Book"'.
+2026-04-07 17:56:45 [INFO] "[TRACE-SOURCE][START] Начало операции PutBook для Id = 11"
+2026-04-07 17:56:45 [INFO] "[TRACE] Начало операции PutBook."
+2026-04-07 17:56:45 [WARN] "[TRACE-SOURCE][WARN] Несоответствие Id в маршруте и объекте книги. Операция не выполнена."
+2026-04-07 17:56:45 [PERF] "[TRACE] [PERF] PutBook() занял 5 мс"
+2026-04-07 17:56:45 [INFO] "[TRACE-SOURCE][INFO] PutBook() занял 5 мс"
+2026-04-07 17:56:45 [INFO] "[TRACE-SOURCE][STOP] Завершение операции PutBook"
+2026-04-07 17:56:45 [INFO] "[TRACE] Конец операции PutBook."
+2026-04-07 17:56:45 [DEBUG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter", "Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter", "Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter", "Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-04-07 17:56:45 [DEBUG] No information found on request to perform content negotiation.
+2026-04-07 17:56:45 [DEBUG] Attempting to select the first output formatter in the output formatters list which supports a content type from the explicitly specified content types '["application/problem+json", "application/problem+xml", "application/problem+json", "application/problem+xml"]'.
+2026-04-07 17:56:45 [DEBUG] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"' and content type '"application/problem+json"' to write the response.
+2026-04-07 17:56:45 [INFO] Executing "ObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'.
+2026-04-07 17:56:45 [INFO] Executed action "logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)" in 71.636ms
+2026-04-07 17:56:45 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)"'
+2026-04-07 17:56:45 [INFO] Request finished "HTTP/2" "PUT" "https"://"localhost:7156""""/api/Books/11""" - 400 null "application/problem+json; charset=utf-8" 105.4355ms
+2026-04-07 17:56:46 [INFO] Request starting "HTTP/2" "PUT" "https"://"localhost:7156""""/api/Books/11""" - "application/json" 69
+2026-04-07 17:56:46 [DEBUG] 1 candidate(s) found for the request path '"/api/Books/11"'
+2026-04-07 17:56:46 [DEBUG] Endpoint '"logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)"' with route pattern '"api/Books/{id}"' is valid for the request path '"/api/Books/11"'
+2026-04-07 17:56:46 [DEBUG] Request matched endpoint '"logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)"'
+2026-04-07 17:56:46 [DEBUG] Static files was skipped as the request already matched an endpoint.
+2026-04-07 17:56:46 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)"'
+2026-04-07 17:56:46 [INFO] Route matched with "{action = \"PutBook\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PutBook(Int32, logs_kt_1.Models.Book)" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 17:56:46 [DEBUG] Execution plan of "authorization" filters (in the following order): ["None"]
+2026-04-07 17:56:46 [DEBUG] Execution plan of "resource" filters (in the following order): ["None"]
+2026-04-07 17:56:46 [DEBUG] Execution plan of "action" filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)", "Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-04-07 17:56:46 [DEBUG] Execution plan of "exception" filters (in the following order): ["None"]
+2026-04-07 17:56:46 [DEBUG] Execution plan of "result" filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-04-07 17:56:46 [DEBUG] Executing controller factory for controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1")
+2026-04-07 17:56:46 [DEBUG] Executed controller factory for controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1")
+2026-04-07 17:56:46 [DEBUG] Attempting to bind parameter '"id"' of type '"System.Int32"' ...
+2026-04-07 17:56:46 [DEBUG] Attempting to bind parameter '"id"' of type '"System.Int32"' using the name '"id"' in request data ...
+2026-04-07 17:56:46 [DEBUG] Done attempting to bind parameter '"id"' of type '"System.Int32"'.
+2026-04-07 17:56:46 [DEBUG] Done attempting to bind parameter '"id"' of type '"System.Int32"'.
+2026-04-07 17:56:46 [DEBUG] Attempting to validate the bound parameter '"id"' of type '"System.Int32"' ...
+2026-04-07 17:56:46 [DEBUG] Done attempting to validate the bound parameter '"id"' of type '"System.Int32"'.
+2026-04-07 17:56:46 [DEBUG] Attempting to bind parameter '"book"' of type '"logs_kt_1.Models.Book"' ...
+2026-04-07 17:56:46 [DEBUG] Attempting to bind parameter '"book"' of type '"logs_kt_1.Models.Book"' using the name '""' in request data ...
+2026-04-07 17:56:46 [DEBUG] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter"' for content type '"application/json"'.
+2026-04-07 17:56:46 [DEBUG] Connection id ""0HNKKMMUFM49F"", Request id ""0HNKKMMUFM49F:00000007"": started reading request body.
+2026-04-07 17:56:46 [DEBUG] Connection id ""0HNKKMMUFM49F"", Request id ""0HNKKMMUFM49F:00000007"": done reading request body.
+2026-04-07 17:56:46 [DEBUG] JSON input formatter succeeded, deserializing to type '"logs_kt_1.Models.Book"'
+2026-04-07 17:56:46 [DEBUG] Done attempting to bind parameter '"book"' of type '"logs_kt_1.Models.Book"'.
+2026-04-07 17:56:46 [DEBUG] Done attempting to bind parameter '"book"' of type '"logs_kt_1.Models.Book"'.
+2026-04-07 17:56:46 [DEBUG] Attempting to validate the bound parameter '"book"' of type '"logs_kt_1.Models.Book"' ...
+2026-04-07 17:56:46 [DEBUG] Done attempting to validate the bound parameter '"book"' of type '"logs_kt_1.Models.Book"'.
+2026-04-07 17:56:46 [INFO] "[TRACE-SOURCE][START] Начало операции PutBook для Id = 11"
+2026-04-07 17:56:46 [INFO] "[TRACE] Начало операции PutBook."
+2026-04-07 17:56:46 [WARN] "[TRACE-SOURCE][WARN] Несоответствие Id в маршруте и объекте книги. Операция не выполнена."
+2026-04-07 17:56:46 [PERF] "[TRACE] [PERF] PutBook() занял 8 мс"
+2026-04-07 17:56:46 [INFO] "[TRACE-SOURCE][INFO] PutBook() занял 8 мс"
+2026-04-07 17:56:46 [INFO] "[TRACE-SOURCE][STOP] Завершение операции PutBook"
+2026-04-07 17:56:46 [INFO] "[TRACE] Конец операции PutBook."
+2026-04-07 17:56:46 [DEBUG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter", "Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter", "Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter", "Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-04-07 17:56:46 [DEBUG] No information found on request to perform content negotiation.
+2026-04-07 17:56:46 [DEBUG] Attempting to select the first output formatter in the output formatters list which supports a content type from the explicitly specified content types '["application/problem+json", "application/problem+xml", "application/problem+json", "application/problem+xml"]'.
+2026-04-07 17:56:46 [DEBUG] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"' and content type '"application/problem+json"' to write the response.
+2026-04-07 17:56:46 [INFO] Executing "ObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'.
+2026-04-07 17:56:46 [INFO] Executed action "logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)" in 85.0423ms
+2026-04-07 17:56:46 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)"'
+2026-04-07 17:56:46 [INFO] Request finished "HTTP/2" "PUT" "https"://"localhost:7156""""/api/Books/11""" - 400 null "application/problem+json; charset=utf-8" 123.4497ms
