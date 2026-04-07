@@ -20,6 +20,8 @@ namespace logs_kt_1.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
         {
+            var sw = Stopwatch.StartNew();
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Start, 100, "Начало операции GetBooks");
             Trace.WriteLine("Начало операции GetBooks.");
 
             var books = await _context.Books.ToListAsync();
@@ -27,11 +29,19 @@ namespace logs_kt_1.Controllers
             if (books.Count == 0)
             {
                 Trace.TraceInformation("Список книг пуст.");
+                sw.Stop();
+                Trace.WriteLine($"[PERF] GetBooks() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 101, $"GetBooks() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 102, "Завершение операции GetBooks");
                 Trace.WriteLine("Конец операции GetBooks.");
                 return Ok(books);
             }
 
             Trace.TraceInformation($"Получен список книг. Количество: {books.Count}");
+            sw.Stop();
+            Trace.WriteLine($"[PERF] GetBooks() занял {sw.ElapsedMilliseconds} мс");
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 101, $"GetBooks() занял {sw.ElapsedMilliseconds} мс");
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 102, "Завершение операции GetBooks");
             Trace.WriteLine("Конец операции GetBooks.");
             return Ok(books);
         }
@@ -39,6 +49,8 @@ namespace logs_kt_1.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Book>> GetBook(int id)
         {
+            var sw = Stopwatch.StartNew();
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Start, 110, $"Начало операции GetBook для Id = {id}");
             Trace.WriteLine("Начало операции GetBook.");
 
             var book = await _context.Books.FindAsync(id);
@@ -46,11 +58,19 @@ namespace logs_kt_1.Controllers
             if (book == null)
             {
                 Trace.TraceError($"Книга с Id = {id} не найдена.");
+                sw.Stop();
+                Trace.WriteLine($"[PERF] GetBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 111, $"GetBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 112, "Завершение операции GetBook");
                 Trace.WriteLine("Конец операции GetBook.");
                 return NotFound();
             }
 
             Trace.TraceInformation($"Книга с Id = {id} успешно найдена.");
+            sw.Stop();
+            Trace.WriteLine($"[PERF] GetBook() занял {sw.ElapsedMilliseconds} мс");
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 111, $"GetBook() занял {sw.ElapsedMilliseconds} мс");
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 112, "Завершение операции GetBook");
             Trace.WriteLine("Конец операции GetBook.");
             return Ok(book);
         }
@@ -58,11 +78,17 @@ namespace logs_kt_1.Controllers
         [HttpPost]
         public async Task<ActionResult<Book>> PostBook(Book book)
         {
+            var sw = Stopwatch.StartNew();
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Start, 120, "Начало операции PostBook");
             Trace.WriteLine("Начало операции PostBook.");
 
             if (string.IsNullOrWhiteSpace(book.Title))
             {
                 Trace.TraceWarning("Попытка добавить книгу с пустым названием. Операция не выполнена.");
+                sw.Stop();
+                Trace.WriteLine($"[PERF] PostBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 121, $"PostBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 122, "Завершение операции PostBook");
                 Trace.WriteLine("Конец операции PostBook.");
                 return BadRequest("Название книги не может быть пустым.");
             }
@@ -70,6 +96,10 @@ namespace logs_kt_1.Controllers
             if (string.IsNullOrWhiteSpace(book.Author))
             {
                 Trace.TraceWarning("Попытка добавить книгу с пустым автором. Операция не выполнена.");
+                sw.Stop();
+                Trace.WriteLine($"[PERF] PostBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 121, $"PostBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 122, "Завершение операции PostBook");
                 Trace.WriteLine("Конец операции PostBook.");
                 return BadRequest("Автор книги не может быть пустым.");
             }
@@ -77,6 +107,10 @@ namespace logs_kt_1.Controllers
             if (book.Year < 0)
             {
                 Trace.TraceError($"Неверный год {book.Year} для книги \"{book.Title}\".");
+                sw.Stop();
+                Trace.WriteLine($"[PERF] PostBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 121, $"PostBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 122, "Завершение операции PostBook");
                 Trace.WriteLine("Конец операции PostBook.");
                 return BadRequest("Год не может быть отрицательным.");
             }
@@ -87,6 +121,11 @@ namespace logs_kt_1.Controllers
             var count = await _context.Books.CountAsync();
             Trace.TraceInformation($"Книга \"{book.Title}\" успешно добавлена.");
             Trace.TraceInformation($"Количество книг после добавления: {count}");
+
+            sw.Stop();
+            Trace.WriteLine($"[PERF] PostBook() занял {sw.ElapsedMilliseconds} мс");
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 121, $"PostBook() занял {sw.ElapsedMilliseconds} мс");
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 122, "Завершение операции PostBook");
             Trace.WriteLine("Конец операции PostBook.");
 
             return CreatedAtAction(nameof(GetBook), new { id = book.Id }, book);
@@ -95,11 +134,17 @@ namespace logs_kt_1.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBook(int id, Book book)
         {
+            var sw = Stopwatch.StartNew();
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Start, 130, $"Начало операции PutBook для Id = {id}");
             Trace.WriteLine("Начало операции PutBook.");
 
             if (id != book.Id)
             {
                 Trace.TraceWarning("Несоответствие Id в маршруте и объекте книги. Операция не выполнена.");
+                sw.Stop();
+                Trace.WriteLine($"[PERF] PutBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 131, $"PutBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 132, "Завершение операции PutBook");
                 Trace.WriteLine("Конец операции PutBook.");
                 return BadRequest();
             }
@@ -107,6 +152,10 @@ namespace logs_kt_1.Controllers
             if (string.IsNullOrWhiteSpace(book.Title))
             {
                 Trace.TraceWarning("Попытка обновить книгу с пустым названием. Операция не выполнена.");
+                sw.Stop();
+                Trace.WriteLine($"[PERF] PutBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 131, $"PutBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 132, "Завершение операции PutBook");
                 Trace.WriteLine("Конец операции PutBook.");
                 return BadRequest("Название книги не может быть пустым.");
             }
@@ -114,6 +163,10 @@ namespace logs_kt_1.Controllers
             if (string.IsNullOrWhiteSpace(book.Author))
             {
                 Trace.TraceWarning("Попытка обновить книгу с пустым автором. Операция не выполнена.");
+                sw.Stop();
+                Trace.WriteLine($"[PERF] PutBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 131, $"PutBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 132, "Завершение операции PutBook");
                 Trace.WriteLine("Конец операции PutBook.");
                 return BadRequest("Автор книги не может быть пустым.");
             }
@@ -121,6 +174,10 @@ namespace logs_kt_1.Controllers
             if (book.Year < 0)
             {
                 Trace.TraceError($"Неверный год {book.Year} для книги \"{book.Title}\".");
+                sw.Stop();
+                Trace.WriteLine($"[PERF] PutBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 131, $"PutBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 132, "Завершение операции PutBook");
                 Trace.WriteLine("Конец операции PutBook.");
                 return BadRequest("Год не может быть отрицательным.");
             }
@@ -137,15 +194,27 @@ namespace logs_kt_1.Controllers
                 if (!_context.Books.Any(e => e.Id == id))
                 {
                     Trace.TraceError($"Книга с Id = {id} не найдена. Обновление невозможно.");
+                    sw.Stop();
+                    Trace.WriteLine($"[PERF] PutBook() занял {sw.ElapsedMilliseconds} мс");
+                    AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 131, $"PutBook() занял {sw.ElapsedMilliseconds} мс");
+                    AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 132, "Завершение операции PutBook");
                     Trace.WriteLine("Конец операции PutBook.");
                     return NotFound();
                 }
 
-                Trace.TraceError($"Критическая ошибка при обновлении книги с Id = {id}."); //"Trace" не содержит определение для "TraceEvent".
+                Trace.TraceError($"Критическая ошибка при обновлении книги с Id = {id}.");
+                sw.Stop();
+                Trace.WriteLine($"[PERF] PutBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 131, $"PutBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 132, "Завершение операции PutBook");
                 Trace.WriteLine("Конец операции PutBook.");
                 throw;
             }
 
+            sw.Stop();
+            Trace.WriteLine($"[PERF] PutBook() занял {sw.ElapsedMilliseconds} мс");
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 131, $"PutBook() занял {sw.ElapsedMilliseconds} мс");
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 132, "Завершение операции PutBook");
             Trace.WriteLine("Конец операции PutBook.");
             return NoContent();
         }
@@ -153,6 +222,8 @@ namespace logs_kt_1.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBook(int id)
         {
+            var sw = Stopwatch.StartNew();
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Start, 140, $"Начало операции DeleteBook для Id = {id}");
             Trace.WriteLine("Начало операции DeleteBook.");
 
             var book = await _context.Books.FindAsync(id);
@@ -160,6 +231,10 @@ namespace logs_kt_1.Controllers
             if (book == null)
             {
                 Trace.TraceError($"Книга с Id = {id} не найдена. Удаление невозможно.");
+                sw.Stop();
+                Trace.WriteLine($"[PERF] DeleteBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 141, $"DeleteBook() занял {sw.ElapsedMilliseconds} мс");
+                AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 142, "Завершение операции DeleteBook");
                 Trace.WriteLine("Конец операции DeleteBook.");
                 return NotFound();
             }
@@ -170,6 +245,11 @@ namespace logs_kt_1.Controllers
             var count = await _context.Books.CountAsync();
             Trace.TraceInformation($"Книга с Id = {id} успешно удалена.");
             Trace.TraceInformation($"Количество книг после удаления: {count}");
+
+            sw.Stop();
+            Trace.WriteLine($"[PERF] DeleteBook() занял {sw.ElapsedMilliseconds} мс");
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Information, 141, $"DeleteBook() занял {sw.ElapsedMilliseconds} мс");
+            AppTracing.PerfSource.TraceEvent(TraceEventType.Stop, 142, "Завершение операции DeleteBook");
             Trace.WriteLine("Конец операции DeleteBook.");
 
             return NoContent();
