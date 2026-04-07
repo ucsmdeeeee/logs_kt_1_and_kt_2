@@ -1,0 +1,102 @@
+2026-04-07 12:49:00 [INFO] "Приложение запущено."
+2026-04-07 12:49:01 [INFO] "Начало операции Swagger."
+2026-04-07 12:49:01 [INFO] "Конец операции Swagger."
+2026-04-07 12:49:01 [INFO] Now listening on: "https://localhost:7156"
+2026-04-07 12:49:01 [INFO] Now listening on: "http://localhost:5098"
+2026-04-07 12:49:01 [INFO] Application started. Press Ctrl+C to shut down.
+2026-04-07 12:49:01 [INFO] Hosting environment: "Development"
+2026-04-07 12:49:01 [INFO] Content root path: "C:\Users\lozik\source\repos\logs_kt_1\logs_kt_1"
+2026-04-07 12:49:02 [INFO] Request starting "HTTP/2" "GET" "https"://"localhost:7156""""/swagger/index.html""" - null null
+2026-04-07 12:49:02 [INFO] Request finished "HTTP/2" "GET" "https"://"localhost:7156""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 192.3572ms
+2026-04-07 12:49:02 [INFO] Request starting "HTTP/2" "GET" "https"://"localhost:7156""""/_vs/browserLink""" - null null
+2026-04-07 12:49:02 [INFO] Request starting "HTTP/2" "GET" "https"://"localhost:7156""""/_framework/aspnetcore-browser-refresh.js""" - null null
+2026-04-07 12:49:02 [INFO] Request finished "HTTP/2" "GET" "https"://"localhost:7156""""/_framework/aspnetcore-browser-refresh.js""" - 200 16503 "application/javascript; charset=utf-8" 17.7444ms
+2026-04-07 12:49:02 [INFO] Request finished "HTTP/2" "GET" "https"://"localhost:7156""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 49.4425ms
+2026-04-07 12:49:02 [INFO] Request starting "HTTP/2" "GET" "https"://"localhost:7156""""/swagger/v1/swagger.json""" - null null
+2026-04-07 12:49:02 [INFO] Request finished "HTTP/2" "GET" "https"://"localhost:7156""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 17.4768ms
+2026-04-07 12:49:09 [INFO] Request starting "HTTP/2" "GET" "https"://"localhost:7156""""/api/Books""" - null null
+2026-04-07 12:49:09 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.GetBooks (logs_kt_1)"'
+2026-04-07 12:49:09 [INFO] Route matched with "{action = \"GetBooks\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[logs_kt_1.Models.Book]]] GetBooks()" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 12:49:09 [INFO] "Начало операции GetBooks."
+2026-04-07 12:49:09 [INFO] "Список книг пуст."
+2026-04-07 12:49:09 [INFO] "Конец операции GetBooks."
+2026-04-07 12:49:09 [INFO] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[logs_kt_1.Models.Book, logs_kt_1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2026-04-07 12:49:09 [INFO] Executed action "logs_kt_1.Controllers.BooksController.GetBooks (logs_kt_1)" in 378.2748ms
+2026-04-07 12:49:09 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.GetBooks (logs_kt_1)"'
+2026-04-07 12:49:09 [INFO] Request finished "HTTP/2" "GET" "https"://"localhost:7156""""/api/Books""" - 200 null "application/json; charset=utf-8" 413.8633ms
+2026-04-07 12:49:17 [INFO] Request starting "HTTP/2" "POST" "https"://"localhost:7156""""/api/Books""" - "application/json" 70
+2026-04-07 12:49:17 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)"'
+2026-04-07 12:49:17 [INFO] Route matched with "{action = \"PostBook\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[logs_kt_1.Models.Book]] PostBook(logs_kt_1.Models.Book)" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 12:49:17 [INFO] "Начало операции PostBook."
+2026-04-07 12:49:17 [INFO] Saved 1 entities to in-memory store.
+2026-04-07 12:49:17 [INFO] "Книга \"string1\" успешно добавлена."
+2026-04-07 12:49:17 [INFO] "Количество книг после добавления: 1"
+2026-04-07 12:49:17 [INFO] "Конец операции PostBook."
+2026-04-07 12:49:17 [INFO] Executing "CreatedAtActionResult", writing value of type '"logs_kt_1.Models.Book"'.
+2026-04-07 12:49:17 [INFO] Executed action "logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)" in 145.5828ms
+2026-04-07 12:49:17 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)"'
+2026-04-07 12:49:17 [INFO] Request finished "HTTP/2" "POST" "https"://"localhost:7156""""/api/Books""" - 201 null "application/json; charset=utf-8" 165.9894ms
+2026-04-07 12:49:20 [INFO] Request starting "HTTP/2" "POST" "https"://"localhost:7156""""/api/Books""" - "application/json" 70
+2026-04-07 12:49:20 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)"'
+2026-04-07 12:49:20 [INFO] Route matched with "{action = \"PostBook\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[logs_kt_1.Models.Book]] PostBook(logs_kt_1.Models.Book)" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 12:49:20 [INFO] "Начало операции PostBook."
+2026-04-07 12:49:20 [INFO] Saved 1 entities to in-memory store.
+2026-04-07 12:49:20 [INFO] "Книга \"string2\" успешно добавлена."
+2026-04-07 12:49:20 [INFO] "Количество книг после добавления: 2"
+2026-04-07 12:49:20 [INFO] "Конец операции PostBook."
+2026-04-07 12:49:20 [INFO] Executing "CreatedAtActionResult", writing value of type '"logs_kt_1.Models.Book"'.
+2026-04-07 12:49:20 [INFO] Executed action "logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)" in 36.4931ms
+2026-04-07 12:49:20 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)"'
+2026-04-07 12:49:20 [INFO] Request finished "HTTP/2" "POST" "https"://"localhost:7156""""/api/Books""" - 201 null "application/json; charset=utf-8" 50.2083ms
+2026-04-07 12:49:25 [INFO] Request starting "HTTP/2" "POST" "https"://"localhost:7156""""/api/Books""" - "application/json" 70
+2026-04-07 12:49:25 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)"'
+2026-04-07 12:49:25 [INFO] Route matched with "{action = \"PostBook\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[logs_kt_1.Models.Book]] PostBook(logs_kt_1.Models.Book)" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 12:49:25 [INFO] "Начало операции PostBook."
+2026-04-07 12:49:25 [INFO] Saved 1 entities to in-memory store.
+2026-04-07 12:49:25 [INFO] "Книга \"string3\" успешно добавлена."
+2026-04-07 12:49:25 [INFO] "Количество книг после добавления: 3"
+2026-04-07 12:49:25 [INFO] "Конец операции PostBook."
+2026-04-07 12:49:25 [INFO] Executing "CreatedAtActionResult", writing value of type '"logs_kt_1.Models.Book"'.
+2026-04-07 12:49:25 [INFO] Executed action "logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)" in 7.0306ms
+2026-04-07 12:49:25 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)"'
+2026-04-07 12:49:25 [INFO] Request finished "HTTP/2" "POST" "https"://"localhost:7156""""/api/Books""" - 201 null "application/json; charset=utf-8" 20.7206ms
+2026-04-07 12:49:38 [INFO] Request starting "HTTP/2" "POST" "https"://"localhost:7156""""/api/Books""" - "application/json" 76
+2026-04-07 12:49:38 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)"'
+2026-04-07 12:49:38 [INFO] Route matched with "{action = \"PostBook\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[logs_kt_1.Models.Book]] PostBook(logs_kt_1.Models.Book)" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 12:49:38 [INFO] "Начало операции PostBook."
+2026-04-07 12:49:38 [ERROR] "Неверный год -1 для книги \"string4error\"."
+2026-04-07 12:49:38 [INFO] "Конец операции PostBook."
+2026-04-07 12:49:38 [INFO] Executing "BadRequestObjectResult", writing value of type '"System.String"'.
+2026-04-07 12:49:38 [INFO] Executed action "logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)" in 4.7755ms
+2026-04-07 12:49:38 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.PostBook (logs_kt_1)"'
+2026-04-07 12:49:38 [INFO] Request finished "HTTP/2" "POST" "https"://"localhost:7156""""/api/Books""" - 400 null "text/plain; charset=utf-8" 17.6723ms
+2026-04-07 12:49:44 [INFO] Request starting "HTTP/2" "GET" "https"://"localhost:7156""""/api/Books/1""" - null null
+2026-04-07 12:49:44 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.GetBook (logs_kt_1)"'
+2026-04-07 12:49:44 [INFO] Route matched with "{action = \"GetBook\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[logs_kt_1.Models.Book]] GetBook(Int32)" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 12:49:44 [INFO] "Начало операции GetBook."
+2026-04-07 12:49:44 [INFO] "Книга с Id = 1 успешно найдена."
+2026-04-07 12:49:44 [INFO] "Конец операции GetBook."
+2026-04-07 12:49:44 [INFO] Executing "OkObjectResult", writing value of type '"logs_kt_1.Models.Book"'.
+2026-04-07 12:49:44 [INFO] Executed action "logs_kt_1.Controllers.BooksController.GetBook (logs_kt_1)" in 36.5594ms
+2026-04-07 12:49:44 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.GetBook (logs_kt_1)"'
+2026-04-07 12:49:44 [INFO] Request finished "HTTP/2" "GET" "https"://"localhost:7156""""/api/Books/1""" - 200 null "application/json; charset=utf-8" 52.3992ms
+2026-04-07 12:49:48 [INFO] Request starting "HTTP/2" "GET" "https"://"localhost:7156""""/api/Books/15""" - null null
+2026-04-07 12:49:48 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.GetBook (logs_kt_1)"'
+2026-04-07 12:49:48 [INFO] Route matched with "{action = \"GetBook\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[logs_kt_1.Models.Book]] GetBook(Int32)" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 12:49:48 [INFO] "Начало операции GetBook."
+2026-04-07 12:49:48 [ERROR] "Книга с Id = 15 не найдена."
+2026-04-07 12:49:48 [INFO] "Конец операции GetBook."
+2026-04-07 12:49:48 [INFO] Executing "ObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'.
+2026-04-07 12:49:48 [INFO] Executed action "logs_kt_1.Controllers.BooksController.GetBook (logs_kt_1)" in 16.2031ms
+2026-04-07 12:49:48 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.GetBook (logs_kt_1)"'
+2026-04-07 12:49:48 [INFO] Request finished "HTTP/2" "GET" "https"://"localhost:7156""""/api/Books/15""" - 404 null "application/problem+json; charset=utf-8" 27.7681ms
+2026-04-07 12:49:52 [INFO] Request starting "HTTP/2" "GET" "https"://"localhost:7156""""/api/Books""" - null null
+2026-04-07 12:49:52 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.GetBooks (logs_kt_1)"'
+2026-04-07 12:49:52 [INFO] Route matched with "{action = \"GetBooks\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[logs_kt_1.Models.Book]]] GetBooks()" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 12:49:52 [INFO] "Начало операции GetBooks."
+2026-04-07 12:49:52 [INFO] "Получен список книг. Количество: 3"
+2026-04-07 12:49:52 [INFO] "Конец операции GetBooks."
+2026-04-07 12:49:52 [INFO] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[logs_kt_1.Models.Book, logs_kt_1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2026-04-07 12:49:52 [INFO] Executed action "logs_kt_1.Controllers.BooksController.GetBooks (logs_kt_1)" in 5.0341ms
+2026-04-07 12:49:52 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.GetBooks (logs_kt_1)"'
+2026-04-07 12:49:52 [INFO] Request finished "HTTP/2" "GET" "https"://"localhost:7156""""/api/Books""" - 200 null "application/json; charset=utf-8" 18.9606ms

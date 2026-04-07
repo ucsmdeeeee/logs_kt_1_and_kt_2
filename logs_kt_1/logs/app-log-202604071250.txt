@@ -1,0 +1,63 @@
+2026-04-07 12:51:15 [INFO] Request starting "HTTP/2" "PUT" "https"://"localhost:7156""""/api/Books/1""" - "application/json" 73
+2026-04-07 12:51:15 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)"'
+2026-04-07 12:51:15 [INFO] Route matched with "{action = \"PutBook\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PutBook(Int32, logs_kt_1.Models.Book)" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 12:51:15 [INFO] "Начало операции PutBook."
+2026-04-07 12:51:15 [INFO] Saved 1 entities to in-memory store.
+2026-04-07 12:51:15 [INFO] "Книга с Id = 1 успешно обновлена."
+2026-04-07 12:51:15 [INFO] "Конец операции PutBook."
+2026-04-07 12:51:15 [INFO] Executing StatusCodeResult, setting HTTP status code 204
+2026-04-07 12:51:15 [INFO] Executed action "logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)" in 10.8581ms
+2026-04-07 12:51:15 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)"'
+2026-04-07 12:51:15 [INFO] Request finished "HTTP/2" "PUT" "https"://"localhost:7156""""/api/Books/1""" - 204 null null 30.433ms
+2026-04-07 12:51:25 [INFO] Request starting "HTTP/2" "PUT" "https"://"localhost:7156""""/api/Books/15""" - "application/json" 73
+2026-04-07 12:51:25 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)"'
+2026-04-07 12:51:25 [INFO] Route matched with "{action = \"PutBook\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PutBook(Int32, logs_kt_1.Models.Book)" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 12:51:25 [INFO] "Начало операции PutBook."
+2026-04-07 12:51:25 [WARN] "Несоответствие Id в маршруте и объекте книги. Операция не выполнена."
+2026-04-07 12:51:25 [INFO] "Конец операции PutBook."
+2026-04-07 12:51:25 [INFO] Executing "ObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'.
+2026-04-07 12:51:25 [INFO] Executed action "logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)" in 5.7626ms
+2026-04-07 12:51:25 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)"'
+2026-04-07 12:51:25 [INFO] Request finished "HTTP/2" "PUT" "https"://"localhost:7156""""/api/Books/15""" - 400 null "application/problem+json; charset=utf-8" 17.5717ms
+2026-04-07 12:51:31 [INFO] Request starting "HTTP/2" "PUT" "https"://"localhost:7156""""/api/Books/15""" - "application/json" 74
+2026-04-07 12:51:31 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)"'
+2026-04-07 12:51:31 [INFO] Route matched with "{action = \"PutBook\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PutBook(Int32, logs_kt_1.Models.Book)" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 12:51:31 [INFO] "Начало операции PutBook."
+2026-04-07 12:51:31 [ERROR] "Книга с Id = 15 не найдена. Обновление невозможно."
+2026-04-07 12:51:31 [INFO] "Конец операции PutBook."
+2026-04-07 12:51:31 [INFO] Executing "ObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'.
+2026-04-07 12:51:31 [INFO] Executed action "logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)" in 25.5369ms
+2026-04-07 12:51:31 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.PutBook (logs_kt_1)"'
+2026-04-07 12:51:31 [INFO] Request finished "HTTP/2" "PUT" "https"://"localhost:7156""""/api/Books/15""" - 404 null "application/problem+json; charset=utf-8" 38.9717ms
+2026-04-07 12:51:41 [INFO] Request starting "HTTP/2" "DELETE" "https"://"localhost:7156""""/api/Books/1""" - null null
+2026-04-07 12:51:41 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.DeleteBook (logs_kt_1)"'
+2026-04-07 12:51:41 [INFO] Route matched with "{action = \"DeleteBook\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteBook(Int32)" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 12:51:41 [INFO] "Начало операции DeleteBook."
+2026-04-07 12:51:41 [INFO] Saved 1 entities to in-memory store.
+2026-04-07 12:51:41 [INFO] "Книга с Id = 1 успешно удалена."
+2026-04-07 12:51:41 [INFO] "Количество книг после удаления: 2"
+2026-04-07 12:51:41 [INFO] "Конец операции DeleteBook."
+2026-04-07 12:51:41 [INFO] Executing StatusCodeResult, setting HTTP status code 204
+2026-04-07 12:51:41 [INFO] Executed action "logs_kt_1.Controllers.BooksController.DeleteBook (logs_kt_1)" in 13.9738ms
+2026-04-07 12:51:41 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.DeleteBook (logs_kt_1)"'
+2026-04-07 12:51:41 [INFO] Request finished "HTTP/2" "DELETE" "https"://"localhost:7156""""/api/Books/1""" - 204 null null 26.8872ms
+2026-04-07 12:51:45 [INFO] Request starting "HTTP/2" "DELETE" "https"://"localhost:7156""""/api/Books/15""" - null null
+2026-04-07 12:51:45 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.DeleteBook (logs_kt_1)"'
+2026-04-07 12:51:45 [INFO] Route matched with "{action = \"DeleteBook\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteBook(Int32)" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 12:51:45 [INFO] "Начало операции DeleteBook."
+2026-04-07 12:51:45 [ERROR] "Книга с Id = 15 не найдена. Удаление невозможно."
+2026-04-07 12:51:45 [INFO] "Конец операции DeleteBook."
+2026-04-07 12:51:45 [INFO] Executing "ObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ProblemDetails"'.
+2026-04-07 12:51:45 [INFO] Executed action "logs_kt_1.Controllers.BooksController.DeleteBook (logs_kt_1)" in 5.0048ms
+2026-04-07 12:51:45 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.DeleteBook (logs_kt_1)"'
+2026-04-07 12:51:45 [INFO] Request finished "HTTP/2" "DELETE" "https"://"localhost:7156""""/api/Books/15""" - 404 null "application/problem+json; charset=utf-8" 15.7551ms
+2026-04-07 12:51:49 [INFO] Request starting "HTTP/2" "GET" "https"://"localhost:7156""""/api/Books""" - null null
+2026-04-07 12:51:49 [INFO] Executing endpoint '"logs_kt_1.Controllers.BooksController.GetBooks (logs_kt_1)"'
+2026-04-07 12:51:49 [INFO] Route matched with "{action = \"GetBooks\", controller = \"Books\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[logs_kt_1.Models.Book]]] GetBooks()" on controller "logs_kt_1.Controllers.BooksController" ("logs_kt_1").
+2026-04-07 12:51:49 [INFO] "Начало операции GetBooks."
+2026-04-07 12:51:49 [INFO] "Получен список книг. Количество: 2"
+2026-04-07 12:51:49 [INFO] "Конец операции GetBooks."
+2026-04-07 12:51:49 [INFO] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[logs_kt_1.Models.Book, logs_kt_1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2026-04-07 12:51:49 [INFO] Executed action "logs_kt_1.Controllers.BooksController.GetBooks (logs_kt_1)" in 4.5834ms
+2026-04-07 12:51:49 [INFO] Executed endpoint '"logs_kt_1.Controllers.BooksController.GetBooks (logs_kt_1)"'
+2026-04-07 12:51:49 [INFO] Request finished "HTTP/2" "GET" "https"://"localhost:7156""""/api/Books""" - 200 null "application/json; charset=utf-8" 15.7944ms
