@@ -1,21 +1,22 @@
 using logs_kt_1.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
-using Serilog.Formatting;
-using Serilog.Formatting.Display;
+using Serilog.Formatting.Json;
 using System.Diagnostics;
 
 var logsPath = Path.Combine(AppContext.BaseDirectory, "logs");
 Directory.CreateDirectory(logsPath);
 
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Information()
+    .MinimumLevel.Debug()
+    .Enrich.FromLogContext()
     .WriteTo.Console()
     .WriteTo.File(
-        new CustomTraceFormatter(),
-        Path.Combine(logsPath, "app-log-.txt"),
-        rollingInterval: RollingInterval.Minute,
+        formatter: new JsonFormatter(),
+        path: Path.Combine(logsPath, "structured-.json"),
+        rollingInterval: RollingInterval.Day,
         shared: true)
     .CreateLogger();
 
@@ -25,14 +26,13 @@ Trace.AutoFlush = true;
 
 try
 {
-    Trace.TraceInformation("Приложение запущено.");
-
     var builder = WebApplication.CreateBuilder(args);
+
+    builder.Logging.ClearProviders();
+    builder.Host.UseSerilog();
 
     builder.Services.AddDbContext<ApplicationDbConext>(options =>
         options.UseInMemoryDatabase("LibraryDB"));
-
-    builder.Host.UseSerilog();
 
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
@@ -40,12 +40,14 @@ try
 
     var app = builder.Build();
 
+    Log.Information("Приложение запущено");
+
     if (app.Environment.IsDevelopment())
     {
-        Trace.WriteLine("Начало операции Swagger.");
+        Log.Debug("Начало операции Swagger");
         app.UseSwagger();
         app.UseSwaggerUI();
-        Trace.WriteLine("Конец операции Swagger.");
+        Log.Debug("Конец операции Swagger");
     }
 
     app.UseHttpsRedirection();
@@ -56,11 +58,11 @@ try
 }
 catch (Exception ex)
 {
-    Trace.TraceError($"Критическая ошибка: {ex.Message}. Приложение завершается."); //"Trace" не содержит определение для "TraceEvent".
+    Log.Error(ex, "Критическая ошибка: {Message}. Приложение завершается.", ex.Message);
 }
 finally
 {
-    Trace.TraceInformation("Приложение завершено.");
+    Log.Information("Приложение завершено");
     Log.CloseAndFlush();
 }
 
@@ -69,13 +71,13 @@ public class SerilogTraceListener : TraceListener
     public override void Write(string? message)
     {
         if (!string.IsNullOrWhiteSpace(message))
-            Log.Information("{Message}", $"[TRACE] {message}");
+            Log.Debug("TRACE: {TraceMessage}", message);
     }
 
     public override void WriteLine(string? message)
     {
         if (!string.IsNullOrWhiteSpace(message))
-            Log.Information("{Message}", $"[TRACE] {message}");
+            Log.Debug("TRACE: {TraceMessage}", message);
     }
 
     public override void TraceEvent(TraceEventCache? eventCache, string? source, TraceEventType eventType, int id, string? message)
@@ -86,45 +88,20 @@ public class SerilogTraceListener : TraceListener
         switch (eventType)
         {
             case TraceEventType.Information:
-                Log.Information("{Message}", message);
+                Log.Information("{TraceMessage}", message);
                 break;
             case TraceEventType.Warning:
-                Log.Warning("{Message}", message);
+                Log.Warning("{TraceMessage}", message);
                 break;
             case TraceEventType.Error:
-                Log.Error("{Message}", message);
+                Log.Error("{TraceMessage}", message);
                 break;
             case TraceEventType.Critical:
-                Log.Fatal("{Message}", message);
+                Log.Fatal("{TraceMessage}", message);
                 break;
             default:
-                Log.Information("{Message}", message);
+                Log.Debug("{TraceMessage}", message);
                 break;
         }
-    }
-}
-
-public class CustomTraceFormatter : ITextFormatter
-{
-    public void Format(LogEvent logEvent, TextWriter output)
-    {
-        var timestamp = logEvent.Timestamp.ToString("yyyy-MM-dd HH:mm:ss");
-        var message = logEvent.RenderMessage();
-
-        string level = message.StartsWith("[TRACE]")
-            ? "TRACE"
-            : logEvent.Level switch
-            {
-                LogEventLevel.Information => "INFO",
-                LogEventLevel.Warning => "WARN",
-                LogEventLevel.Error => "ERROR",
-                LogEventLevel.Fatal => "CRITICAL",
-                _ => logEvent.Level.ToString().ToUpper()
-            };
-
-        output.WriteLine($"{timestamp} [{level}] {message.Replace("[TRACE] ", "")}");
-
-        if (logEvent.Exception != null)
-            output.WriteLine(logEvent.Exception);
     }
 }
