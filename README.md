@@ -2,7 +2,7 @@
 
 пример файлов с логами находится в logs_kt_1/logs
 
-Critical не сделал (Program.cs line 59) Trace.TraceError($"Критическая ошибка: {ex.Message}. Приложение завершается."); //"Trace" не содержит определение для "TraceEvent".
+```Critical не сделал (Program.cs line 59) Trace.TraceError($"Критическая ошибка: {ex.Message}. Приложение завершается."); //"Trace" не содержит определение для "TraceEvent".```
 
 в консоли [TRACE] есть
 
